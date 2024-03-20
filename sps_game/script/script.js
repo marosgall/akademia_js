@@ -1,7 +1,7 @@
 let userScore = 0
 let compScore = 0
 let firstGame = true
-let winner = "Remíza"
+let winner
 let counter = {
     stone: 0,
     paper: 0,
@@ -20,7 +20,7 @@ function playGame() {
     let userChoice = prompt("Zadaj K,P alebo N").toUpperCase()
 
     while (userChoice.length > 1 || !["K", "P", "N"].includes(userChoice)) {
-        alert("Napíš K,P alebo N")
+        alert("Nesprávna možnosť! Napíš K,P alebo N")
         userChoice = prompt("Zadaj K,P alebo N").toUpperCase()
     }
 
@@ -73,6 +73,7 @@ function generateCompChoice() {
 
 function findOutWinner(userChoice, compChoice) {
     if (userChoice === compChoice) {
+        winner = "Remíza"
         console.log("Draw");
         return alert("Remíza!")
     } else if (
