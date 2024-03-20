@@ -17,12 +17,11 @@ function playGame() {
 
     compChoice = generateCompChoice()
 
-    let userChoice = prompt("Zadaj K,P alebo N")
-    userChoice = userChoice.toUpperCase()
+    let userChoice = prompt("Zadaj K,P alebo N").toUpperCase()
 
-    if (userChoice.length > 1 || !["K", "P", "N"].includes(userChoice)) {
+    while (userChoice.length > 1 || !["K", "P", "N"].includes(userChoice)) {
         alert("Napíš K,P alebo N")
-        return
+        userChoice = prompt("Zadaj K,P alebo N").toUpperCase()
     }
 
     console.log(`User choice: ${userChoice}`)
